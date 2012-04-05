@@ -23,12 +23,11 @@
     (< n 2) false
     (= n 2) true
     (even? n) false
-    :else (loop [counter 3]
+    :else (loop [counter 2 nn (Math/sqrt n)]
             (cond
-              (> counter n) true
-              (= counter n) true
+              (>= counter nn) true
               (= 0 (mod n counter)) false
-              :else (recur (+ 2 counter))))))
+              :else (recur (inc counter) nn)))))
 
 (defn gen-primes [n]
   (cond
