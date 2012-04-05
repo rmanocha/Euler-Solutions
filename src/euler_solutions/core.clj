@@ -17,6 +17,26 @@
 (defn problem-2 [n]
   (reduce + (filter #(= 0 (mod % 2)) (take-while (partial > n) (fibs)))))
 
+; #3
+(defn is-prime [n]
+  (cond
+    (< n 2) false
+    (= n 2) true
+    (even? n) false
+    :else (loop [counter 3]
+            (cond
+              (> counter n) true
+              (= counter n) true
+              (= 0 (mod n counter)) false
+              :else (recur (+ 2 counter))))))
+
+
+;(defn highest-factor [n]
+;  (
+;
+;(defn problem-3 [n]
+;  (highest-factor (Math/sqrt n)))
+
 (defn -main [& args]
   (println (problem-1 1000))
   (println (problem-2 4e6)))
