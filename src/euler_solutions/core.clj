@@ -40,11 +40,11 @@
           (cons n (gen-primes (- n 2)))
           (gen-primes (- n 2))))))
 
-;(defn problem-3 [n]
-;  (let [nn (int (Math/sqrt n))]
-;    (
+(defn problem-3 [n]
+  (first (filter #(= 0 (mod n %)) (take-while (partial < 1) (gen-primes (int (Math/sqrt 13195)))))))
 
 
 (defn -main [& args]
   (println (problem-1 1000))
-  (println (problem-2 4e6)))
+  (println (problem-2 4e6))
+  (println (problem-3 13195)))
