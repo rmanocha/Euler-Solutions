@@ -46,6 +46,15 @@
 (defn is-palindrome [s]
   (= s (clojure.contrib.string/reverse s)))
 
+(defn problem-4 []
+  (loop [x 999 y 999]
+    (let [xy (* x y)]
+      (cond
+        (is-palindrome (Integer/toString xy)) xy
+        (< x 101) false
+        (< y 101) (recur (dec x) 999)
+        :else (recur x (dec y))))))
+
 
 (defn -main [& args]
   (println (problem-1 1000))
