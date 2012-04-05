@@ -41,10 +41,10 @@
           (gen-primes (- n 2))))))
 
 (defn problem-3 [n]
-  (first (filter #(= 0 (mod n %)) (take-while (partial < 1) (gen-primes (int (Math/sqrt 13195)))))))
+  (first (filter #(= 0 (mod n %)) (take-while (partial < 1) (gen-primes (int (Math/sqrt n)))))))
 
 
 (defn -main [& args]
   (println (problem-1 1000))
   (println (problem-2 4e6))
-  (println (problem-3 13195)))
+  (println (problem-3 600851475143)))
