@@ -30,12 +30,20 @@
               (= 0 (mod n counter)) false
               :else (recur (+ 2 counter))))))
 
+(defn gen-primes [n]
+  (cond
+    (< n 3) '(2)
+    (even? n) (gen-primes (dec n))
+    :else
+      (lazy-seq
+        (if (is-prime n)
+          (cons n (gen-primes (- n 2)))
+          (gen-primes (- n 2))))))
 
-;(defn highest-factor [n]
-;  (
-;
 ;(defn problem-3 [n]
-;  (highest-factor (Math/sqrt n)))
+;  (let [nn (int (Math/sqrt n))]
+;    (
+
 
 (defn -main [& args]
   (println (problem-1 1000))
