@@ -1,4 +1,5 @@
-(ns euler-solutions.core)
+(ns euler-solutions.core
+  (:require clojure.contrib.string))
 
 (defn problem-1 [n]
   (loop [nn 0 mul-sum 0]
@@ -41,6 +42,9 @@
 
 (defn problem-3 [n]
   (first (filter #(= 0 (mod n %)) (take-while (partial < 1) (gen-primes (int (Math/sqrt n)))))))
+
+(defn is-palindrome [s]
+  (= s (clojure.contrib.string/reverse s)))
 
 
 (defn -main [& args]
