@@ -60,6 +60,12 @@
                (recur new-xx new-yy max-pal))
              (recur new-xx new-yy max-pal))))))))
 
+(defn problem-5 []
+  (loop [prod 2520]
+    (if (= 0 (reduce + (map #(mod prod %) '(20 19 18 17 16 15 14 13 12 11))))
+      prod
+      (recur (+ 2520 prod)))))
+
 (defn -main [& args]
   (time (problem-1 1000))
   (println (problem-1 1000))
@@ -68,4 +74,6 @@
   (time (problem-3 600851475143))
   (println (problem-3 600851475143))
   (time (problem-4))
-  (println (problem-4)))
+  (println (problem-4))
+  (time (problem-5))
+  (println (problem-5)))
