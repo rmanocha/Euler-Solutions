@@ -66,4 +66,6 @@
   (time  (problem-2 4e6))
   (println  (problem-2 4e6))
   (time (problem-3 600851475143))
-  (println (problem-3 600851475143)))
+  (println (problem-3 600851475143))
+  (time (problem-4))
+  (println (problem-4)))
