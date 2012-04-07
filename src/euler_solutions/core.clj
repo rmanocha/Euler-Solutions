@@ -66,6 +66,11 @@
       prod
       (recur (+ 2520 prod)))))
 
+(defn square [n] (* n n))
+
+(defn problem-6 [n]
+  (- (square (reduce + (range 1 (+ n 1)))) (reduce + (map square (range 1 (+ n 1))))))
+
 (defn -main [& args]
   (time (problem-1 1000))
   (println (problem-1 1000))
@@ -76,4 +81,7 @@
   (time (problem-4))
   (println (problem-4))
   (time (problem-5))
-  (println (problem-5)))
+  (println (problem-5))
+  (time (problem-6 100))
+  (println (problem-6 100))
+  )
