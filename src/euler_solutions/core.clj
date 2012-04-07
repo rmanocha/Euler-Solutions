@@ -26,7 +26,7 @@
     (even? n) false
     :else (loop [counter 2 nn (Math/sqrt n)]
             (cond
-              (>= counter nn) true
+              (> counter nn) true
               (= 0 (mod n counter)) false
               :else (recur (inc counter) nn)))))
 
@@ -71,6 +71,17 @@
 (defn problem-6 [n]
   (- (square (reduce + (range 1 (+ n 1)))) (reduce + (map square (range 1 (+ n 1))))))
 
+(defn gen-all-primes
+  ([] (gen-all-primes 2))
+  ([n]
+   (lazy-seq
+     (if (is-prime n)
+       (cons n (gen-all-primes (+ 1 n)))
+       (gen-all-primes (+ 1 n))))))
+
+(defn problem-7 [n]
+  (last (take n (gen-all-primes))))
+
 (defn -main [& args]
   (time (problem-1 1000))
   (println (problem-1 1000))
@@ -84,4 +95,6 @@
   (println (problem-5))
   (time (problem-6 100))
   (println (problem-6 100))
+  (time (problem-7 10001))
+  (println (problem-7 10001))
   )
