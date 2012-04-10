@@ -62,7 +62,7 @@
 
 (defn problem-5 []
   (loop [prod 2520]
-    (if (= 0 (reduce + (map #(mod prod %) '(20 19 18 17 16 15 14 13 12 11))))
+    (if (every? zero? (map #(mod prod %) '(20 19 18 17 16 15 14 13 12 11)))
       prod
       (recur (+ 2520 prod)))))
 
