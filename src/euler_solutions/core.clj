@@ -72,12 +72,12 @@
   (- (square (reduce + (range 1 (+ n 1)))) (reduce + (map square (range 1 (+ n 1))))))
 
 (defn gen-all-primes
-  ([] (gen-all-primes 2))
+  ([] (cons 2 (gen-all-primes 3)))
   ([n]
    (lazy-seq
      (if (is-prime n)
-       (cons n (gen-all-primes (+ 1 n)))
-       (gen-all-primes (+ 1 n))))))
+       (cons n (gen-all-primes (+ 2 n)))
+       (gen-all-primes (+ 2 n))))))
 
 (defn problem-7 [n]
   (last (take n (gen-all-primes))))
