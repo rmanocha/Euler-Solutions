@@ -94,6 +94,9 @@
          (let [prod (reduce * (map #(Integer/parseInt (.toString %)) (.substring num-str-8 nn (+ 5 nn))))]
            (recur (inc nn) (if (> prod max-prod) prod max-prod))))))))
 
+(defn problem-10 []
+  (reduce + (gen-primes 2000000)))
+
 (defn -main [& args]
   (time (problem-1 1000))
   (println (problem-1 1000))
@@ -111,4 +114,6 @@
   (println (problem-7 10001))
   (time (problem-8))
   (println (problem-8))
+  (time (problem-10))
+  (println (problem-10))
   )
