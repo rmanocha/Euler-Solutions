@@ -98,7 +98,8 @@
   (reduce *
     (flatten
       (take 1
-       (for [a (range 5 1000 5) b (range a 1000 5) c (range b 1000 5) :when (and (= (+ a b c) 1000) (= (+ (square a) (square b)) (square c)))]
+       (for [a (range 5 1000 5) b (range a 1000 5) c (range b 1000 5)
+             :when (and (= (+ a b c) 1000) (= (+ (square a) (square b)) (square c)))]
         [a b c])))))
 
 (defn problem-10 []
