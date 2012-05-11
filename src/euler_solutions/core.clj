@@ -98,9 +98,11 @@
   (reduce *
     (flatten
       (take 1
-       (for [a (range 5 1000 5) b (range a 1000 5) c (range b 1000 5)
-             :when (and (= (+ a b c) 1000) (= (+ (square a) (square b)) (square c)))]
-        [a b c])))))
+        (for [a (range 1 1000) b (range a 1000)
+              :let [c (- 1000 a b)]
+              :when (and
+                      (= (+ (square a) (square b)) (square c)))]
+          [a b c])))))
 
 (defn problem-10 []
   (reduce + (gen-primes 2000000)))
